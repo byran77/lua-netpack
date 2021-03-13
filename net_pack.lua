@@ -53,6 +53,7 @@ function net_pack.parse_data(data)
     return self, strsub(data, len + 4, -1)
 end
 
+--Test the flag bit
 function net_pack:is_encrypt()
     return (self.byFlag & MSG_FLAG_ENCRYPT) > 0
 end
@@ -65,6 +66,7 @@ function net_pack:is_broadcast()
     return (self.byFlag & MSG_FLAG_BROADCAST) > 0
 end
 
+--Set the flag bit
 function net_pack:set_encrypt()
     self.byFlag = self.byFlag | MSG_FLAG_ENCRYPT
 end
